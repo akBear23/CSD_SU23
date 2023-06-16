@@ -29,20 +29,27 @@ def dijkstra(graph, start_vertex):
                 if neighbor not in graph.visited:
                     old_cost = D[neighbor]
                     new_cost = D[current_vertex] + distance
-                    if new_cost < old_cost:
+                    if new_cost <= old_cost:
                         pq.put((new_cost, neighbor))
-                        D[neighbor] = new_cost
-                        trace[neighbor] = current_vertex
+                        D[neighbor].append(new_cost)
+                        trace[neighbor].append(current_vertex)
+                    
     return D
 
+# def rollback(trace, start, end):
+#     if(start != end and trace[end] == -1): return('Khong co duong di')
+#     path = []
+#     while(end != -1):
+#         path.append(end)
+#         for x in trace: end = x
+#     x = path.reverse()
+#     return path
+
 def rollback(trace, start, end):
-    if(start != end and trace[end] == -1): return('Khong co duong di')
-    path = []
-    while(end != -1):
-        path.append(end)
-        end = trace[end]
-    x = path.reverse()
-    return path
+    tmp = [x for x in trace]
+    for x in trace: 
+        tmp.append(end)
+        rollback(tmp, end, x)
 
 # vertices = int(input('Nhap so dinh: '))
 # edges = int(input('Nhap so canh: '))

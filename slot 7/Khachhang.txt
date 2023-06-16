@@ -1,0 +1,4 @@
+K0001, Cong ti co khi Viet Nam
+K0002, Tap doan FPT
+K0003, Cong ti det may Viet Nam
+K0004, Cong ti co phan ABC

@@ -1,0 +1,3 @@
+H0001, Tu dien, 1000
+H0002, Bo mach, 5000
+H0003, Ban dan, 4000
